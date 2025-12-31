@@ -28,6 +28,11 @@
   #player {
     display: none;
   }
+
+  video {
+    max-width: 90%;
+    max-height: 80%;
+  }
 </style>
 </head>
 <body>
@@ -35,22 +40,21 @@
 <button id="wifiBtn">📶 FREE WIFI</button>
 
 <div id="player">
-  <iframe
-    width="560"
-    height="315"
-    src=""
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
+  <video id="rickVideo" controls>
+    <source src="rickroll.mp4" type="video/mp4">
+    Tvůj prohlížeč nepodporuje video tag.
+  </video>
 </div>
 
 <script>
-  document.getElementById("wifiBtn").addEventListener("click", () => {
-    document.getElementById("wifiBtn").style.display = "none";
-    document.getElementById("player").style.display = "block";
+  const btn = document.getElementById("wifiBtn");
+  const player = document.getElementById("player");
+  const video = document.getElementById("rickVideo");
 
-    document.querySelector("iframe").src =
-      "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&rel=0";
+  btn.addEventListener("click", () => {
+    btn.style.display = "none";
+    player.style.display = "block";
+    video.play(); // spustí hned i se zvukem
   });
 </script>
 
